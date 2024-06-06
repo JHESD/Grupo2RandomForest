@@ -18,3 +18,14 @@ clf = RandomForestClassifier(n_estimators=100, random_state=42)
 
 # Entrenar el modelo
 clf.fit(X_train, y_train)
+
+# Hacer predicciones
+y_pred = clf.predict(X_test)
+
+# Evaluar el modelo
+accuracy = accuracy_score(y_test, y_pred)
+print(f'Precisión del modelo: {accuracy * 100:.2f}%')
+
+# Opcional: guardar el modelo entrenado
+import joblib
+joblib.dump(clf, 'modelo_random_forest.pkl')
